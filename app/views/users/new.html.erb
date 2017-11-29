@@ -1,0 +1,33 @@
+<%= form_for(@user) do |f| %>
+
+  <div class="form">
+    <%= f.text_field :studend_id %>
+    <%= f.password_field :student_password %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit "START" %>
+  </div>
+<% end %>
+
+<% @user.studend_body.each do |key, value| %>
+
+<table border="1">
+  <h2 style=""><%= key %><br></h2>
+  <tr>
+    <th>Subjects</th>
+    <th>Midterm</th>
+    <th>Final</th>
+  </tr>
+  <% value.each do |a| %>
+  <tr>
+    <td><%= a["Subject"] %></td>
+    <td><%= a["Midterm"] %></td>
+    <td><%= a["Final"] %></td>
+    <% end %>
+  </tr>
+</table>
+<img src="/resutl.jpg"height="200" width="200" >
+
+<% end %>
